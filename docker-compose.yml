@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  web:
+    container_name: web
+    ports:
+      - "8081:80"
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./src:/var/www
+      - ./docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
